@@ -23,6 +23,10 @@ class Score:
     @property
     def scoree_2(self):
         return self._scoree_2
+    
+    @property
+    def scoree_3(self):
+        return self._scoree_3
 
     @property
     def totalscore(self):

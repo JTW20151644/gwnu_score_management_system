@@ -35,8 +35,30 @@ class TestScoreManagementSystem(unittest.TestCase):
             sms = ScoreManagementSystem()
             self.assertEqual(3, sms.read('score_data1.csv'))
 
-    def test_get_score_sid(self):
-        pass
+    def test_sort_by_register_1(self):
+        with patch('score_management_system.open', self.m_open_1):
+            sms = ScoreManagementSystem()
+            sms.read('score.csv')       
+            result = sms.sort_by_register(order='asc')
+            self.assertEqual('1,1,강호민,85,90,95,270', result)
+
+    def test_sort_by_register_2(self):
+        with patch('score_management_system.open', self.m_open_2):
+            sms = ScoreManagementSystem()
+            sms.read('score.csv')       
+            result = sms.sort_by_register(order='asc')
+            self.assertEqual('1,1,강호민,85,90,95,270\n2,2,김광호,80,70,60,210', result)
+
+    def test_sort_by_register_2_1(self):
+        with patch('score_management_system.open', self.m_open_2):
+            sms = ScoreManagementSystem()
+            sms.read('score.csv')   
+
+            result = sms.sort_by_register(order='des')
+            self.assertEqual('2,2,김광호,80,70,60,210\n1,1,강호민,85,90,95,270', result)
+            
+
+
 
 if __name__ == "__main__":
     unittest.main()
