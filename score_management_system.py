@@ -5,6 +5,7 @@ class ScoreManagementSystem:
 
     def read(self, score_data_file):
         with open(score_data_file, 'rt', encoding='utf=8') as fo:
-          lines = fo.readlines()
+          data = fo.read()
+          lines = data.strip().split('\n')
 
         return len(lines)
