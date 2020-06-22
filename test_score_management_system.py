@@ -35,59 +35,60 @@ class TestScoreManagementSystem(unittest.TestCase):
             sms = ScoreManagementSystem()
             self.assertEqual(3, sms.read('score_data1.csv'))
 
-    def test_sort_by_register_1(self):
+    def test_sort_1(self):
         with patch('score_management_system.open', self.m_open_1):
             sms = ScoreManagementSystem()
             sms.read('score.csv')       
-            result = sms.sort_by_register(order='asc')
+          #  result = sms.sort_by_register(order='asc')
+            result = sms.sort(order_key="register", order_way="asc")
             self.assertEqual('1,1,강호민,85,90,95,270', result)
 
-    def test_sort_by_register_2(self):
+    def test_sort_2(self):
         with patch('score_management_system.open', self.m_open_2):
             sms = ScoreManagementSystem()
             sms.read('score.csv')       
-            result = sms.sort_by_register(order='asc')
+            result = sms.sort(order_key="register", order_way="asc")
             self.assertEqual('1,1,강호민,85,90,95,270\n2,2,김광호,80,70,60,210', result)
 
-    def test_sort_by_register_2_1(self):
+    def test_sort_3(self):
         with patch('score_management_system.open', self.m_open_2):
             sms = ScoreManagementSystem()
             sms.read('score.csv')   
 
-            result = sms.sort_by_register(order="des")
+            result = sms.sort(order_key="register", order_way="des")
             self.assertEqual('2,2,김광호,80,70,60,210\n1,1,강호민,85,90,95,270', result)
 
 
-    def test_sort_by_totalscore_1(self):
+    def test_sort_4(self):
         with patch('score_management_system.open', self.m_open_2):
             sms = ScoreManagementSystem()
             sms.read('score.csv')   
 
-            result = sms.sort_by_totalscore(order="asc")
+            result = sms.sort("totalscore", "asc")
             self.assertEqual('2,2,김광호,80,70,60,210\n1,1,강호민,85,90,95,270', result)
 
-    def test_sort_by_totalscore_2(self):
+    def test_sort_5(self):
         with patch('score_management_system.open', self.m_open_2):
             sms = ScoreManagementSystem()
             sms.read('score.csv')   
 
-            result = sms.sort_by_totalscore(order="des")
+            result = sms.sort("totalscore", "des")
             self.assertEqual('1,1,강호민,85,90,95,270\n2,2,김광호,80,70,60,210', result)
 
-    def test_sort_by_totalscore_3(self):
+    def test_sort_6(self):
         with patch('score_management_system.open', self.m_open_3):
             sms = ScoreManagementSystem()
             sms.read('score.csv')   
 
-            result = sms.sort_by_totalscore(order="asc")
+            result = sms.sort("totalscore", "asc")
             self.assertEqual('2,2,김광호,80,70,60,210\n3,3,김민식,75,85,80,240\n1,1,강호민,85,90,95,270', result)
 
-    def test_sort_by_totalscore_4(self):
+    def test_sort_7(self):
         with patch('score_management_system.open', self.m_open_3):
             sms = ScoreManagementSystem()
             sms.read('score.csv')   
 
-            result = sms.sort_by_totalscore(order="des")
+            result = sms.sort("totalscore", "des")
             self.assertEqual('1,1,강호민,85,90,95,270\n3,3,김민식,75,85,80,240\n2,2,김광호,80,70,60,210', result)
     
 

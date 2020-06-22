@@ -34,22 +34,14 @@ class ScoreManagementSystem:
 
     def sort(self, order_key="register", order_way="asc"):
         if order_key == "register" and order_way == "asc":
-            pass
-
-    def sort_by_register(self, order="asc"):
-        if order == "asc":
             sorted_scores = sorted(self._scores.items())
-        elif order == "des":
+        elif order_key == "register" and order_way == "des":
             sorted_scores = sorted(self._scores.items(), reverse=True)
+        elif order_key == "totalscore" and order_way == "asc":
+            sorted_scores = sorted(self._scores.items(), key=key_totalscore)
+        elif order_key == "totalscore" and order_way == "des":
+            sorted_scores = sorted(self._scores.items(), key=key_totalscore, reverse=True)
 
-        result = self._make_scores_string(sorted_scores)
-        return result
-
-    def sort_by_totalscore(self, order="asc"):
-        if order == "asc":
-            sorted_scores = sorted(self._scores.items(), key = key_totalscore)
-        elif order == "des":
-            sorted_scores = sorted(self._scores.items(), key= key_totalscore, reverse=True)
 
         result = self._make_scores_string(sorted_scores)
         return result
