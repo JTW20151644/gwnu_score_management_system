@@ -15,3 +15,12 @@ class Score:
     @property
     def name(self):
         return self._name
+
+    @property
+    def scoree(self):
+        return self._scoree
+
+    @property
+    def scoree_2(self):
+        return self._scoree_2
+
