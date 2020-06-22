@@ -7,6 +7,7 @@ class Score:
         self._scoree = int(items[2])    #점수1
         self._scoree_2 = int(items[3])  #점수2
         self._scoree_3 = int(items[4])  #점수3
+       
 
     @property
     def sid(self):
@@ -31,3 +32,9 @@ class Score:
     @property
     def totalscore(self):
         return self._scoree + self._scoree_2 + self._scoree_3
+
+    @property
+    def avg(self):
+        return (self._scoree + self._scoree_2 + self._scoree_3) /3
+
+

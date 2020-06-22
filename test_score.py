@@ -36,6 +36,10 @@ class TestScore(unittest.TestCase):
         self.assertEqual(270, self.my_score1.totalscore)
         self.assertEqual(210, self.my_score2.totalscore)
 
+    def test_avg(self):
+        self.assertEqual(90, self.my_score1.avg)
+        self.assertEqual(70, self.my_score2.avg)
+
 if __name__ == "__main__":
     unittest.main()
 
