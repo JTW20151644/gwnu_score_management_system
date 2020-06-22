@@ -32,6 +32,10 @@ class TestScore(unittest.TestCase):
         self.assertEqual(90, self.my_score1._scoree_2)
         self.assertEqual(70, self.my_score2._scoree_2)
 
+    def test_totalscore(self):
+        self.assertEqual(270, self.my_score1.totalscore)
+        self.assertEqual(210, self.my_score2.totalscore)
+
 if __name__ == "__main__":
     unittest.main()
 
