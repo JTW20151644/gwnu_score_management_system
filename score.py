@@ -11,3 +11,7 @@ class Score:
     @property
     def sid(self):
         return self._sid
+
+    @property
+    def name(self):
+        return self._name
